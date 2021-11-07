@@ -19,12 +19,14 @@ var expansions = {
     'SWSH4': {
         name: 'Vivid Voltage',
         expansionSet: 'SWSH4',
-        energy: 'SWSH'
+        energy: 'SWSH',
+        comingSoon: true,
     },
     'SWSH3': {
         name: 'Darkness Ablaze',
         expansionSet: 'SWSH3',
-        energy: 'SWSH'
+        energy: 'SWSH',
+        comingSoon: true,
     },
     'SWSH2': {
         name: 'Rebel Clash',
@@ -63,13 +65,13 @@ var expansions = {
     },
 /* TODO: this card has no "regular rares" which is crashing the app! fix it.
 Here may be why: "You can’t buy single booster packs of Dragon Majesty... they only sell them in
-collector sets or 3 packs."
+collector sets or 3 packs." */
     'SM7b': {
         name: 'Dragon Majesty',
         expansionSet: 'SM7b',
-        energy: 'SMb'
+        energy: 'SMb',
+        comingSoon: true,
     },
-*/
     'SM7': {
         name: 'Celestial Storm',
         expansionSet: 'SM7',
@@ -173,25 +175,11 @@ $(document).ready(function() {
         );
     });
 
-    $('#collection').on('click', '.pokemon-card', function() {
-return;
-        if ($('#collection-click-action').val() == 'add-to-deck') {
-            addToBattleDeck($(this));
-        }
-        if ($('#collection-click-action').val() == 'sell-extras') {
-            sellExtras($(this));
-        }
-    });
-
-    $('#battle-deck').on('click', '.pokemon-card', function() {
-        var index = $(this).parent('.card-wrapper').index();
-        loadedBattleDeck[index].quantity--;
-        loadedBattleDeck = compileCollection(loadedBattleDeck);
-        updateDeckStats();
-        renderCards(loadedBattleDeck, 0, '#battle-deck');
-    });
-
     $('.expansions').on('click', 'img', function() {
+        if (expansions[$(this).data('expansion')].comingSoon) {
+            alert('Coming soon!');
+            return;
+        }
         loadCards($(this).data('expansion'));
     });
 
@@ -219,12 +207,17 @@ return;
 
     for (let key in expansions) {
         const value = expansions[key];
+        let comingSoonAttr = '';
+        if (value.comingSoon) {
+            comingSoonAttr = 'class="coming-soon"'
+        }
         $('.top.container').find('.expansions').append(`
             <img
                 src="${frontendServer}/logos/${value.expansionSet}_Logo_EN.png"
                 id="expansion-${value.expansionSet}"
                 title="${htmlentities.encode(value.name)}"
                 data-expansion="${value.expansionSet}"
+                ${comingSoonAttr}
             />
         `);
     }

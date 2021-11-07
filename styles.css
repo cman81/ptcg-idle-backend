@@ -96,3 +96,8 @@ li.nav-item { margin: 0 5px; }
     -o-transform:scale(3);
     transform:scale(3);
 }
+
+.coming-soon {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}

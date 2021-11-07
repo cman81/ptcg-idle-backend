@@ -7,12 +7,13 @@ $(document).ready(function() {
   loadCards('SM12');
   changeTimer();
   changeSpacer();
-  revealMoney();
+  revealCashButton();
+  earnByBeingIdle();
 
   /**
    * @see https://www.geeksforgeeks.org/how-to-change-the-time-interval-of-setinterval-method-at-runtime-using-javascript/
    */
-  function revealMoney() {
+  function revealCashButton() {
     clearInterval(interval);
 
     if (!$('.add-cash').is(':visible')) {
@@ -22,7 +23,7 @@ $(document).ready(function() {
 
     changeTimer();
     changeSpacer();
-    interval = setInterval(revealMoney, timer);
+    interval = setInterval(revealCashButton, timer);
   }
 
   function changeTimer() {
@@ -30,6 +31,16 @@ $(document).ready(function() {
   }
   function changeSpacer() {
     spacer = Math.floor(Math.random() * 300);
+  }
+
+  function earnByBeingIdle() {
+    setInterval(
+      function() {
+        wallet += 0.01;
+        updateStats();
+      },
+      1000
+    );
   }
 });
 
