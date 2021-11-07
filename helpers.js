@@ -271,7 +271,7 @@ function preloadImages(cards) {
     for (let key in cards) {
         const value = cards[key];
 
-        const path = `cards/${value.expansionSet}/${value.imgSrc}`;
+        const path = `${frontendServer}/cards/${value.expansionSet}/${value.imgSrc}`;
         if (preloadedCards[path]) { return; }
 
         preloadsRemaining++;
