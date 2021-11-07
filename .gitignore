@@ -40,3 +40,5 @@
 .vagrant
 .DS_Store
 Vagrantfile
+
+local.env.php

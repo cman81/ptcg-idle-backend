@@ -45,21 +45,6 @@ function updateDeckStats() {
 }
 
 /**
- * Load battle decks from the database, then return as a promise for post-processing
- * 
- */
-function loadBattleDecks(profileId) {
-    var apiEndpoint = apiHome + '/load_battledecks.php';
-    
-    return $.getJSON(
-        apiEndpoint,
-        function(data) {
-            battleDecks = data;
-        }
-    );
-}
-
-/**
  * Sell extra copies of a card. Keep 4 copies.
  */
 function sellExtras($thisImg) {

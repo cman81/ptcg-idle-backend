@@ -3,6 +3,10 @@
 
     use MeekroDB;
 
+    if (file_exists(__DIR__ . '/../local.env.php')) {
+        include __DIR__ . '/../local.env.php';
+    }
+
     class PokemonDB extends MeekroDB {
         function __construct() {
             // mysql://[user]:[pw]@[host]/[dbname]?reconnect=true
