@@ -1,0 +1,21 @@
+Each pack contains 10 cards.
+1 energy, 5 common, 3 uncommon, and 1 "rare"
+
+that "rare" card can be even more rare:
+holo rare = 1 / 4 packs
+ultra rare = 1 / 8 packs
+secret rare = 1 / 72 packs
+
+a manual way to determine which rare card to pull:
+roll a D4:
+  1-3 = rare
+  4 = roll a D2:
+    1 = holo rare
+    2 = roll a D9:
+      1-8 = ultra rare
+      9 = secret rare
+
+
+
+How about the 3-card (dollar store) packs?
+Generate 72 packs, randomize everything, draw 3 cards

@@ -1,0 +1,119 @@
+body {
+    background-image: url('red-trainer.jpg');
+    color: #444;
+}
+.container {
+    background-color: white;
+}
+.col.border {
+    padding: 8px;
+}
+.pokemon-card {
+    width: 88px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    -webkit-transition:  -webkit-transform .2s ease-out;
+    -moz-transition: -moz-transform .2s ease-out;
+    -o-transition: -o-transform .2s ease-out;
+    -ms-transition: -ms-transform .2s ease-out; 
+    transition: transform .2s ease-out;
+    position: relative;
+}
+.pokemon-card.hover {
+    opacity: 1;
+    z-index: 9999;
+    -webkit-transform:scale(4);
+    -moz-transform:scale(4);
+    -o-transform:scale(4);
+    transform:scale(4);
+}
+.section {
+    display: none;
+}
+.main.container {
+    min-height: 900px;
+}
+.top.container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.container.footer {
+    padding: 20px;
+}
+.card-wrapper {
+    float: left;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.card-wrapper.rare {
+    background-color: #CFD8DC;
+    font-weight: bold;
+}
+.card-wrapper.rare.holo {
+    background-color: #444;
+    color: #ccc;
+}
+.card-wrapper.rare.ultra {
+    background-color: #FFEE58;
+}
+.card-wrapper.rare.secret {
+    background-color: #1A237E;
+    color: #ccc;
+}
+#pokemonModal img { width: 160px; }
+#pokemonModal .deck-item {
+    text-align: center;
+    width: 190px;
+    float: left;
+    margin-bottom: 15px;
+}
+#pokemonModal .deck-item {
+    text-align: center;
+    width: 190px;
+    float: left;
+    margin-bottom: 15px;
+}
+#pokemonModal .deck-item img {
+    -webkit-transition:  -webkit-transform .2s ease-out;
+    -moz-transition: -moz-transform .2s ease-out;
+    -o-transition: -o-transform .2s ease-out;
+    -ms-transition: -ms-transform .2s ease-out; 
+    transition: transform .2s ease-out;
+}
+#pokemonModal .deck-item img.hover {
+    opacity: 1;
+    z-index: 9999;
+    -webkit-transform:scale(2.3);
+    -moz-transform:scale(2.3);
+    -o-transform:scale(2.3);
+    transform:scale(2.3);
+}
+
+.actions { margin-bottom: 7px; }
+.slider {
+    padding: 20px;
+    margin: 5px 20px 10px;
+}
+.slider.ui-slider .ui-slider-handle { height: 3em; }
+
+button.pokemon {
+    border: 0;
+    background-color: white;
+}
+
+.pokemon-top { float: none; }
+.pokemon-top img.pokemon-card {
+    opacity: 1;
+    width: 160px;
+}
+.pokemon-top img.pokemon-card.hover {
+    -webkit-transform:scale(2.5);
+    -moz-transform:scale(2.5);
+    -o-transform:scale(2.5);
+    transform:scale(2.5);
+}
+.pokemon-attachment img.pokemon-card { opacity: 0.5; }
+.pokemon-attachment img.pokemon-card.hover { opacity: 1; }
+
+.border .actions p { margin-bottom: 0.1rem; }
+.player1 { background-color: red; }
+.player2 { background-color: blue; }

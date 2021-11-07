@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <title>Pokemon TCG Table</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="game_table.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Pokemon TCG Table</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="top container">
+        <div class="row">
+            <div class="col-auto">
+                <label for="game-id" class="col-form-label">Game ID:</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" id="game-id" placeholder="Game ID">
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary" id="randomize-game-id">Randomize Game ID</button>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label" for="player-select">Select Player:</label>
+            </div>
+            <div class="col-auto">
+                <select class="custom-select mr-sm-2" id="player-select">
+                    <option selected>Choose...</option>
+                    <option value="player1">Player 1</option>
+                    <option value="player2">Player 2</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-success" data-operation="sitAtTable">
+                    Sit at table
+                </button>
+            </div>
+        </div>
+        <div class="row d-none">
+            <div class="col">
+                <div>Good luck! Have Fun! (Game ID: <span id="this-game-id"></span>)</div>
+            </div>
+        </div>
+        <div class="row d-none">
+            <div class="col-auto">
+                <button type="button" class="btn btn-secondary btn-sm" data-operation="flipCoin">
+                    Flip Coin
+                </button>
+            </div>
+            <div class="col-auto">
+                Last coin flip: <span id="coin-flip">none</span>.
+            </div>
+        </div>
+    </div>
+
+    <div class="container main">
+        <div class="row">
+            <div class="col-7 myself">
+                <div class="container">
+                    <!-- dynamically generated -->
+                </div>
+            </div>
+            <div class="col-5 opponent">
+                <div class="container">
+                    <!-- dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer">
+        <div class="row">
+            <div class="col">
+                <div class="header">
+                    Nothing to see here...
+                </div>
+                <div class="body">
+                    <button type="button" class="btn btn-outline-info btn-sm"
+                        data-operation="pingServerMessages" id="togglePing">
+                        Toggle Ping
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <!-- dynamically generated -->
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- dynamically generated -->
+                </div>
+                <div class="modal-footer">
+                    <!-- dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="whoosh">
+        <source src="high-whoosh.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="bigwhoosh">
+        <source src="low-whoosh.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="magic-spell">
+        <source src="magic-spell.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="modals.js"></script>
+    <script src="game_table.js"></script>
+    <script src="helpers.js"></script>
+</body>
+
+</html>

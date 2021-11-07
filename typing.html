@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>Pokemon Pack Maker!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="typing.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Typing!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="index.html">Open Packs!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="game_table.html">Battle!</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="top container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <div class="container main">
+        <div class="row">
+            <div class="col"><h2>Type out <span class="cards-remaining">10</span> cards!</h2></div>
+            <div class="col"><div class="timer-wrapper">Timer: <span class="timer">0</span> seconds</div></div>
+            <div class="col"><div class="timer-wrapper">Correct: <span class="correct">0</span> / <span class="total">0</span> letters</div></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card-item"><!-- dynamiclly generated --></div>
+                <div class="text-monospace target"><span class="letters"><!-- dynamiclly generated --></span></div><br />
+                <div class="text-monospace keyboard-input"><span class="letters"><!-- dynamiclly generated --></span><span class="blinker"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="whoosh">
+        <source src="high-whoosh.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="bigwhoosh">
+        <source src="low-whoosh.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="zoop">
+        <source src="zoop.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="clang">
+        <source src="clang.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="typewriter-key">
+        <source src="typewriter-key-1.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <audio id="win-sound">
+        <source src="win.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="modals.js"></script>
+    <script src="typing.js"></script>
+    <script src="helpers.js"></script>
+</body>
+
+</html>
