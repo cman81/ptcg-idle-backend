@@ -24,19 +24,17 @@
     $sql = "
         SELECT *
         FROM cards
-        WHERE expansion_set = :expansion_set
-        OR expansion_set = :energy_expansion
+        WHERE expansion_set = %s
+        OR expansion_set = %s
     ";
 
     $db = new PokemonDB();
-    $stmt = $db->prepare($sql);
-
-    // passing values to the parameters
-    $stmt->bindValue(':expansion_set', $_GET['expansionSet']);
-    $stmt->bindValue(':energy_expansion', $_GET['energyExpansion']);
-
-    $ret = $stmt->execute();
-    while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
+    $results = $db->query(
+        $sql,
+        $_GET['expansionSet'],
+        $_GET['energyExpansion']
+    );
+    foreach ($results as $row) {
         $rarity = $row['rarity'];
         $key = $json_field_map[$rarity];
         $out[$key][] = [

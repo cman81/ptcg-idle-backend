@@ -1,1 +1,5 @@
-{}
+{
+    "require": {
+        "sergeytsalkov/meekrodb": "^2.4"
+    }
+}
