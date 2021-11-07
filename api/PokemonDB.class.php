@@ -1,5 +1,7 @@
 <?php
-    require_once "db.class.php";
+    require __DIR__ . '/../vendor/autoload.php';
+
+    use MeekroDB;
 
     class PokemonDB extends MeekroDB {
         function __construct() {
