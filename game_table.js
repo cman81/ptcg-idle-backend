@@ -853,7 +853,7 @@ function renderCardGroup(whichPlayer, group) {
 
         $(`.${whichPlayer} .${group} .cards`).append(`
             <div class="${cssClass}">
-                <img src="cards/${imgSrc}" class="pokemon-card front"/>
+                <img src="${frontendServer}/cards/${imgSrc}" class="pokemon-card front"/>
             </div>
         `);
     }

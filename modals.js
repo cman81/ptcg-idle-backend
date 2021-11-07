@@ -27,7 +27,7 @@ pokemonModal.save = function($modal, buttonData) {
             const value = battleDecks[key];
             $modal.find('.modal-body').append(`
                 <div class="deck-item">
-                    <img src="cards/${value.boxArt}" data-dismiss="modal"
+                    <img src="${frontendServer}/cards/${value.boxArt}" data-dismiss="modal"
                         data-collection-id="${value.collectionId}"/><br />
                     <span class="deck-name">${value.collectionName}</span>
                 </div>
@@ -66,7 +66,7 @@ pokemonModal.load = function($modal, buttonData) {
             const value = battleDecks[key];
             $modal.find('.modal-body').append(`
                 <div class="deck-item">
-                    <img src="cards/${value.boxArt}" data-dismiss="modal"
+                    <img src="${frontendServer}/cards/${value.boxArt}" data-dismiss="modal"
                         data-collection-id="${value.collectionId}"/><br />
                     <span class="deck-name">${value.collectionName}</span>
                 </div>
@@ -103,7 +103,7 @@ pokemonModal.saveNew = function($modal, buttonData) {
         const value = loadedBattleDeck[key];
         $modal.find('.modal-body').append(`
             <div class="deck-item">
-                <img src="cards/${value.expansionSet}/${value.imgSrc}" data-dismiss="modal" />
+                <img src="${frontendServer}/cards/${value.expansionSet}/${value.imgSrc}" data-dismiss="modal" />
             </div>
         `);
     }
@@ -154,7 +154,7 @@ pokemonModal.gameLoadDeck = function($modal, buttonData) {
             const value = battleDecks[key];
             $modal.find('.modal-body').append(`
                 <div class="deck-item">
-                    <img src="cards/${value.boxArt}" data-dismiss="modal"
+                    <img src="${frontendServer}/cards/${value.boxArt}" data-dismiss="modal"
                         data-collection-id="${value.collectionId}"/><br />
                     <span class="deck-name">${value.collectionName}</span>
                 </div>
@@ -198,7 +198,7 @@ pokemonModal.gameMoveSpecificCard = function($modal, buttonData) {
         const value = images[cardIdx];
         $modal.find('.modal-body').append(`
             <div class="deck-item">
-                <img src="cards/${value}" data-dismiss="modal"
+                <img src="${frontendServer}/cards/${value}" data-dismiss="modal"
                     data-key="${key}"/>
             </div>
         `);
@@ -232,7 +232,7 @@ pokemonModal.revealOpponentCard = function($modal, buttonData) {
     $modal.find('.modal-body').html(`
         <p>Your opponent revealed the following card:</p>
         <div class="deck-item">
-            <img src="cards/${imgSrc}" />
+            <img src="${frontendServer}/cards/${imgSrc}" />
         </div>
     `);
     $modal.find('.modal-footer').html(`
@@ -265,7 +265,7 @@ pokemonModal.pokemonDetails = function($modal, buttonData) {
 
         $modal.find('.modal-body .cards').append(`
             <div class="deck-item">
-                <img src="cards/${img}" />
+                <img src="${frontendServer}/cards/${img}" />
             </div>
         `);
     }

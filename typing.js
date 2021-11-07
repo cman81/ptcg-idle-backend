@@ -126,7 +126,7 @@ function loadTypingCards() {
 function renderTypingCard(card) {
     currentWord = card.cardName;
     $('.main.container .col .card-item').html(`
-        <img src="cards/${card.expansionSet}/${card.imgSrc}" class="pokemon-card" />
+        <img src="${frontendServer}/cards/${card.expansionSet}/${card.imgSrc}" class="pokemon-card" />
     `);
     $('.main.container .col .target .letters').html(currentWord.toUpperCase());
     $('.main.container .col .keyboard-input .letters').html('');

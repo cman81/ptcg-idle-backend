@@ -342,12 +342,12 @@ function renderCards(pack, timeInterval, cssId) {
             }
             let symbolSpan = '';
             if (value.rarity != 'energy') {
-                symbolSpan = `<span class="symbol"><img src="logos/${value.expansionSet}_Symbol.png" /></span>`;
+                symbolSpan = `<span class="symbol"><img src="${frontendServer}/logos/${value.expansionSet}_Symbol.png" /></span>`;
             }
 
             $(cssId).append(`
                 <div class="card-wrapper ${value.rarity}" data-rarity="${value.rarity}">
-                    <img src="cards/${value.expansionSet}/${value.imgSrc}"
+                    <img src="${frontendServer}/cards/${value.expansionSet}/${value.imgSrc}"
                         class="${value.rarity} pokemon-card front" />
                     <br />
                     ${symbolSpan}

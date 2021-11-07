@@ -1,3 +1,5 @@
+var frontendServer = 'https://ptcg-idle-frontend.s3.amazonaws.com';
+
 var profileId;
 var wallet = 0;
 var packsOpened = 0;
@@ -219,7 +221,7 @@ return;
         const value = expansions[key];
         $('.top.container').find('.expansions').append(`
             <img
-                src="logos/${value.expansionSet}_Logo_EN.png"
+                src="${frontendServer}/logos/${value.expansionSet}_Logo_EN.png"
                 id="expansion-${value.expansionSet}"
                 title="${htmlentities.encode(value.name)}"
                 data-expansion="${value.expansionSet}"
