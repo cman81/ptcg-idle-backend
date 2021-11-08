@@ -26,6 +26,11 @@ body {
     width: 75%;
     margin: auto;
 }
+@media only screen and (min-width: 769px) {
+    #pack .pokemon-card {
+        width: 50%;
+    }
+}
 
 .section {
     display: none;
@@ -75,4 +80,11 @@ li.nav-item { margin: 0 5px; }
 .coming-soon {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+.card-number {
+    display: none;
+}
+#pack .card-number {
+    display: inline;
 }

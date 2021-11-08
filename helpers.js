@@ -329,6 +329,7 @@ function renderCards(pack, timeInterval, cssId) {
         if (value.rarity != 'energy') {
             symbolSpan = `<span class="symbol"><img src="${frontendServer}/logos/${value.expansionSet}_Symbol.png" /></span>`;
         }
+        const cardNumberSpan = `<span class="card-number">(card #${index + 1})</span>`;
 
         $(cssId).append(`
             <div class="card-wrapper ${value.rarity}" data-rarity="${value.rarity}">
@@ -338,6 +339,7 @@ function renderCards(pack, timeInterval, cssId) {
                 ${symbolSpan}
                 <span class="rarity">${value.rarity}</span>
                 ${quantitySpan}
+                ${cardNumberSpan}
             </div>
         `);
     });
@@ -378,7 +380,6 @@ function generatePack() {
     thisCard = rareCardsClone[Math.floor(Math.random() * rareCardsClone.length)];
 
     const rarity = rarityKey.substring(3);
-    $('#status-message').html(`You got a ${rarity} card!`);
     addCardToPack(pack, thisCard, rarity);
     
     return pack;

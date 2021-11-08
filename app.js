@@ -105,7 +105,9 @@ $(document).ready(function() {
         var pack = addPackToCollection();
 
         // render the generated pack!
+        const rareCard = pack.pop();
         pack = shuffle(pack);
+        pack.push(rareCard);
         renderCards(pack, 125, '#pack');
         $('#pack').slick('unslick');
         $('#pack').slick({
