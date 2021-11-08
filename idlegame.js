@@ -17,7 +17,7 @@ $(document).ready(function() {
     clearInterval(interval);
 
     if (!$('.add-cash').is(':visible')) {
-      $('.add-cash').css('margin-left', spacer);
+      $('.add-cash').css('margin-left', spacer + '%');
       $('.add-cash').show();
     }
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
     timer = Math.random() * 10000;
   }
   function changeSpacer() {
-    spacer = Math.floor(Math.random() * 300);
+    spacer = Math.floor(Math.random() * 90);
   }
 
   function earnByBeingIdle() {
