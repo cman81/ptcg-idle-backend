@@ -34,18 +34,15 @@
         for ($i = 0; $i < $this_card['quantity']; $i++) {
             $sql = "
                 INSERT INTO card_collection_map (collection_id, card)
-                VALUES (:collection_id, :card)
+                VALUES (%s, %s)
             ";
-            $stmt = $db->prepare($sql);
+            $db->query(
+                $sql,
+                $_POST['collectionId'],
+                $this_card['cardId']
+            );
 
-            // passing values to the parameters
-            $stmt->bindValue(':collection_id', $_POST['collectionId']);
-            $stmt->bindValue(':card', $this_card['cardId']);
-
-            // execute the update statement
-            if ($stmt->execute()) {
-                $count++;
-            }
+            $count++;
         }
     }
 

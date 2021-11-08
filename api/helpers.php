@@ -5,20 +5,12 @@ function delete_cards_from_collection($collection_id) {
 
     $sql = "
         DELETE FROM card_collection_map
-        WHERE collection_id = :collection_id
+        WHERE collection_id = %s
     ";
-    $stmt = $db->prepare($sql);
-
-    // passing values to the parameters
-    $stmt->bindValue(':collection_id', $collection_id);
-
-    // execute the update statement
-    if (!$stmt->execute()) {
-        return [
-            'status' => 'error',
-            'statusMessage' => 'unable to delete cards from collection'
-        ];   
-    }
+    $db->query(
+        $sql,
+        $collection_id
+    );
 
     return true;
 }
@@ -30,18 +22,18 @@ function create_collection($collection_id, $profile_id, $box_art) {
         INSERT INTO collections
         (profile_id, collection_name, collection_type, box_art)
         VALUES
-        (:profile_id, :collection_name, :collection_type, :box_art)
+        (%s, %s, %s, %s)
     ";
-    $stmt = $db->prepare($sql);
-
-    // passing values to the parameters
-    $stmt->bindValue(':profile_id', $profile_id);
-    $stmt->bindValue(':collection_name', $collection_id);
-    $stmt->bindValue(':collection_type', 'deck');
-    $stmt->bindValue(':box_art', $box_art);
+    $db->query(
+        $sql,
+        $profile_id,
+        $collection_id,
+        'deck',
+        $box_art
+    );
 
     // execute the update statement
-    if (!$stmt->execute()) {
+    if (empty($db->affectedRows())) {
         return [
             'status' => 'error',
             'statusMessage' => 'unable to create collection'

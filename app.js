@@ -130,6 +130,10 @@ $(document).ready(function() {
         renderCards(loadedBattleDeck, 50, '#battle-deck');
     });
 
+    $('nav').on('click', 'button.navbar-toggler', function() {
+        $('div.navbar-collapse').toggleClass('collapse');
+    });
+
     $('.section').on('mouseover', '.pokemon-card', function() {
         if ($(this).hasClass('rare')) {
             playSound('#bigwhoosh');
@@ -176,6 +180,9 @@ $(document).ready(function() {
                 collection = compileCollection(collection);
                 activateSection('collection');
                 renderCards(collection, 0, '#collection');
+                $("<span>Hello " + profileId + "!</span>")
+                    .insertAfter($('.load-profile').last());
+                $('.load-profile').hide();
             }
         );
     });
