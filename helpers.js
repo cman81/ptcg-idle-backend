@@ -321,28 +321,25 @@ function renderCards(pack, timeInterval, cssId) {
 
     let time = timeInterval;
     $.each(pack, function (index, value) {
-        timeoutFunctions.push(setTimeout(function () {
-            let quantitySpan = '';
-            if (value.quantity > 1) {
-                quantitySpan = `<span class="quantity">(x${value.quantity})</span>`;
-            }
-            let symbolSpan = '';
-            if (value.rarity != 'energy') {
-                symbolSpan = `<span class="symbol"><img src="${frontendServer}/logos/${value.expansionSet}_Symbol.png" /></span>`;
-            }
+        let quantitySpan = '';
+        if (value.quantity > 1) {
+            quantitySpan = `<span class="quantity">(x${value.quantity})</span>`;
+        }
+        let symbolSpan = '';
+        if (value.rarity != 'energy') {
+            symbolSpan = `<span class="symbol"><img src="${frontendServer}/logos/${value.expansionSet}_Symbol.png" /></span>`;
+        }
 
-            $(cssId).append(`
-                <div class="card-wrapper ${value.rarity}" data-rarity="${value.rarity}">
-                    <img src="${frontendServer}/cards/${value.expansionSet}/${value.imgSrc}"
-                        class="${value.rarity} pokemon-card front" />
-                    <br />
-                    ${symbolSpan}
-                    <span class="rarity">${value.rarity}</span>
-                    ${quantitySpan}
-                </div>
-            `);
-        }, time));
-        time += timeInterval;
+        $(cssId).append(`
+            <div class="card-wrapper ${value.rarity}" data-rarity="${value.rarity}">
+                <img src="${frontendServer}/cards/${value.expansionSet}/${value.imgSrc}"
+                    class="${value.rarity} pokemon-card front" />
+                <br />
+                ${symbolSpan}
+                <span class="rarity">${value.rarity}</span>
+                ${quantitySpan}
+            </div>
+        `);
     });
 }
 

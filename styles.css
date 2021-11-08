@@ -22,15 +22,11 @@ body {
     backface-visibility: hidden;
 }
 
-img.energy {
-    opacity: 0.3;
+#pack .pokemon-card {
+    width: 75%;
+    margin: auto;
 }
-img.common {
-    opacity: 0.6;
-}
-img.uncommon {
-    opacity: 0.8;
-}
+
 .section {
     display: none;
 }
@@ -75,27 +71,6 @@ img.uncommon {
 .expansions img.selected { border: 1px solid #990000; }
 .symbol img { height: 38px; }
 li.nav-item { margin: 0 5px; }
-
-.pokemon-card:hover {
-    opacity: 1;
-    z-index: 9999;
-    -webkit-transform:scale(2.25);
-    -moz-transform:scale(2.25);
-    -o-transform:scale(2.25);
-    transform:scale(2.25);
-}
-.pokemon-card.energy:hover {
-    -webkit-transform:scale(1.2);
-    -moz-transform:scale(1.2);
-    -o-transform:scale(1.2);
-    transform:scale(1.2);
-}
-.pokemon-card.rare:hover {
-    -webkit-transform:scale(3);
-    -moz-transform:scale(3);
-    -o-transform:scale(3);
-    transform:scale(3);
-}
 
 .coming-soon {
     -webkit-filter: grayscale(100%);

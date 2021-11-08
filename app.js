@@ -93,6 +93,7 @@ var preloadedCards = [];
 var preloadsRemaining = 0;
   
 $(document).ready(function() {
+    $('#pack').slick();
     $('#open-pack').click(function() {
         activateSection('pack');
         if (wallet < 4) {
@@ -106,6 +107,15 @@ $(document).ready(function() {
         // render the generated pack!
         pack = shuffle(pack);
         renderCards(pack, 125, '#pack');
+        $('#pack').slick('unslick');
+        $('#pack').slick({
+            arrows: false
+        });
+
+        // @see https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
+        $('html, body').animate({
+            scrollTop: $("#pack").offset().top
+        }, 1000);
 
         wallet -= 4;
         packsOpened++;
@@ -114,6 +124,11 @@ $(document).ready(function() {
 
     $('#view-pack').click(function() {
         activateSection('pack');
+
+        // @see https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
+        $('html, body').animate({
+            scrollTop: $("#pack").offset().top
+        }, 1000);
     });
 
     $('#view-collection').click(function() {
@@ -134,11 +149,12 @@ $(document).ready(function() {
         $('div.navbar-collapse').toggleClass('collapse');
     });
 
-    $('.section').on('mouseover', '.pokemon-card', function() {
-        if ($(this).hasClass('rare')) {
+    $('#pack').on('swipe', function(slick, direction) {
+        if ($('.slick-active img').hasClass('rare')) {
             playSound('#bigwhoosh');
             return;
         }
+
         playSound('#whoosh');
     });
 
@@ -180,7 +196,7 @@ $(document).ready(function() {
                 collection = compileCollection(collection);
                 activateSection('collection');
                 renderCards(collection, 0, '#collection');
-                
+
                 let name = profileId.charAt(0).toUpperCase() + profileId.slice(1);
                 $("<span>Hello " + name + "!</span>")
                     .insertAfter($('.load-profile').last());
