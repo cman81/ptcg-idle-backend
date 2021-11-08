@@ -1,8 +1,6 @@
 <?php
     require __DIR__ . '/../vendor/autoload.php';
 
-    use MeekroDB;
-
     if (file_exists(__DIR__ . '/../local.env.php')) {
         include __DIR__ . '/../local.env.php';
     }

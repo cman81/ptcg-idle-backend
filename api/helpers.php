@@ -51,7 +51,7 @@ function load_collection($collection_id) {
         SELECT ccm.collection_id, ccm.card, c.rarity, c.market_value, c.expansion_set, c.img_src
         FROM card_collection_map ccm
         INNER JOIN cards c ON c.card_id = ccm.card
-        WHERE ccm.collection_id = %i
+        WHERE ccm.collection_id = %s
     ";
 
     $results = $db->query(

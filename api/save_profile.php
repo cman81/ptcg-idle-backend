@@ -1,5 +1,6 @@
 <?php
     require_once "PokemonDB.class.php";
+    header('Content-Type: application/json; charset=utf-8');
 
     $db = new PokemonDB();
     if(!$db) {

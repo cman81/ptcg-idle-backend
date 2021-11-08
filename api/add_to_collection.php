@@ -3,6 +3,8 @@
     include_once "helpers.php";
 
     $db = new PokemonDB();
+    header('Content-Type: application/json; charset=utf-8');
+
     if(!$db) {
         $out = [
             'status' => 'error',

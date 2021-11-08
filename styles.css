@@ -1,5 +1,4 @@
 body {
-    background-image: url('splash.jpg');
     color: #444;
 }
 .container {
@@ -27,6 +26,9 @@ body {
     margin: auto;
 }
 @media only screen and (min-width: 769px) {
+    body {
+        background-image: url('splash.jpg');
+    }    
     #pack .pokemon-card {
         width: 50%;
     }
