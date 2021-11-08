@@ -20,9 +20,9 @@
     );
     foreach ($results as $row) {
         $out['profileId'] = $row['profile_id'];
-        $out['cashAdded'] = $row['cash_added'];
-        $out['wallet'] = $row['wallet'];
-        $out['packsOpened'] = $row['packs_opened'];
+        $out['cashAdded'] = round($row['cash_added'], 2);
+        $out['wallet'] = round($row['wallet'], 2);
+        $out['packsOpened'] = intval($row['packs_opened']);
         break;
     }
 
