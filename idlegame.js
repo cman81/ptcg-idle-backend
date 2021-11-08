@@ -36,6 +36,10 @@ $(document).ready(function() {
   function earnByBeingIdle() {
     setInterval(
       function() {
+        if (!profileId) {
+          return;
+        }
+
         wallet += 0.01;
         updateStats();
       },

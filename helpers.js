@@ -465,7 +465,7 @@ function updateStats() {
     $('#unique-card-count').html(uniqueCardCount);
 
     now = Date.now();
-    if (now - lastProfileUpdate > 10000) { // wait 10 seconds before saving again
+    if (now - lastProfileUpdate > 2000) { // wait 2 seconds before saving again
         saveProfile();
     }
 }
