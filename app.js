@@ -180,7 +180,9 @@ $(document).ready(function() {
                 collection = compileCollection(collection);
                 activateSection('collection');
                 renderCards(collection, 0, '#collection');
-                $("<span>Hello " + profileId + "!</span>")
+                
+                let name = profileId.charAt(0).toUpperCase() + profileId.slice(1);
+                $("<span>Hello " + name + "!</span>")
                     .insertAfter($('.load-profile').last());
                 $('.load-profile').hide();
             }
