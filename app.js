@@ -162,6 +162,11 @@ $(document).ready(function() {
             apiEndpoint,
             {name: profileId},
             function(data) {
+                if (data.status == 'error') {
+                    console.log(data);
+                    profileId = null;
+                    return;
+                }
                 wallet = data.wallet ?? 0;
                 packsOpened = data.packsOpened ?? 0;
                 cashAdded = data.cashAdded ?? 0;
