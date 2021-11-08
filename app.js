@@ -138,6 +138,10 @@ $(document).ready(function() {
 
         activateSection('collection');
         renderCards(collection, 0, '#collection');
+        // @see https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
+        $('html, body').animate({
+            scrollTop: $("#collection").offset().top
+        }, 1000);
     });
 
     $('#main-actions').on('click', '#view-battle-deck', function() {

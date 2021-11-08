@@ -88,3 +88,7 @@ li.nav-item { margin: 0 5px; }
 #pack .card-number {
     display: inline;
 }
+
+.filter-cards .form-inline {
+    display: block;
+}
