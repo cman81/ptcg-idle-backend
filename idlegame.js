@@ -43,8 +43,43 @@ $(document).ready(function() {
         wallet += 0.01;
         updateStats();
       },
-      1000
+      10000
     );
   }
 });
 
+
+/**
+ * Cash accumulates for the user when they close the app. When they return, give them that cash.
+ */
+ function getAwayCash(lastUpdatedSeconds) {
+  if (!lastUpdatedSeconds) {
+      // sorry, no soup for you :(
+      return 0;
+  }
+  const timestampSeconds = Date.now() / 1000;
+  let remainingSecondsAway = timestampSeconds - lastUpdatedSeconds;
+
+  // deduct 5 minutes
+  remainingSecondsAway -= 5 * 60;
+  if (remainingSecondsAway < 0) {
+      return 0;
+  }
+  let awayCash = remainingSecondsAway * .001;
+
+  // deduct 6 hours
+  remainingSecondsAway -= 6 * 60 * 60;
+  if (remainingSecondsAway < 0) {
+      return awayCash;
+  }
+  awayCash += remainingSecondsAway * .001;
+
+  // deduct 24 hours
+  remainingSecondsAway -= 24 * 60 * 60;
+  if (remainingSecondsAway < 0) {
+      return awayCash;
+  }
+  awayCash += remainingSecondsAway * .001;
+
+  return awayCash;
+}

@@ -165,7 +165,7 @@ $(document).ready(function() {
     });
 
     $('.add-cash').click(function() {
-        var amountToAdd = parseInt($(this).attr('id').substring(7)); // e.g.: dollar-5 becomes 5
+        var amountToAdd = 0.25;
         if (amountToAdd > sessionCash) {
             $(this).removeClass('btn-outline-success');
             $(this).addClass('btn-outline-danger');
@@ -198,12 +198,14 @@ $(document).ready(function() {
                 cashAdded = data.cashAdded ?? 0;
                 collection = data.collection ?? [];
 
-                wallet += getAwayCash(data.lastUpdated);
+                const awayCash = getAwayCash(data.lastUpdated);
+                wallet += awayCash;
 
                 updateStats();
-                collection = compileCollection(collection);
-                activateSection('collection');
-                renderCards(collection, 0, '#collection');
+                activateSection('pack');
+                if (awayCash) {
+                    $('#status-message').html(`You gained $${awayCash.toFixed(2)} while you were away!`);
+                }
 
                 let name = profileId.charAt(0).toUpperCase() + profileId.slice(1);
                 $("<span>Hello " + name + "!</span>")
