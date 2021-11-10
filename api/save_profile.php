@@ -17,7 +17,7 @@
         SET cash_added = %d,
             wallet = %d,
             packs_opened = %i,
-            last_updated = %i,
+            last_updated = %i
         WHERE profile_id = %s
     ";
     $db->query(
