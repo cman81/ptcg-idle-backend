@@ -33,6 +33,9 @@ body {
         width: 50%;
     }
 }
+#pack .symbol {
+    display: none;
+}
 
 .section {
     display: none;

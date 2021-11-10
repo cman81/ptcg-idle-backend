@@ -16,7 +16,8 @@
         UPDATE profiles
         SET cash_added = %d,
             wallet = %d,
-            packs_opened = %i
+            packs_opened = %i,
+            last_updated = %i,
         WHERE profile_id = %s
     ";
     $db->query(
@@ -24,6 +25,7 @@
         $_POST['cashAdded'],
         $_POST['wallet'],
         $_POST['packsOpened'],
+        time(),
         $_POST['name']
     );
 

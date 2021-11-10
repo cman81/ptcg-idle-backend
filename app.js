@@ -198,6 +198,8 @@ $(document).ready(function() {
                 cashAdded = data.cashAdded ?? 0;
                 collection = data.collection ?? [];
 
+                wallet += getAwayCash(data.lastUpdated);
+
                 updateStats();
                 collection = compileCollection(collection);
                 activateSection('collection');

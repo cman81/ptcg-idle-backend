@@ -24,6 +24,7 @@
         $out['cashAdded'] = round($row['cash_added'], 2);
         $out['wallet'] = round($row['wallet'], 2);
         $out['packsOpened'] = intval($row['packs_opened']);
+        $out['lastUpdated'] = intval($row['last_updated']);
         break;
     }
 

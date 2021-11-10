@@ -36,14 +36,6 @@ const formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2
 })
 
-function updateDeckStats() {
-    let count = 0;
-    $.each(loadedBattleDeck, function(key, value) {
-        count += value.quantity;
-    });
-    $('#deck-cards').html(count);
-}
-
 /**
  * Sell extra copies of a card. Keep 4 copies.
  */
@@ -525,3 +517,35 @@ function debounce(func, wait, immediate) {
         if (callNow) func.apply(context, args);
     };
 };
+
+/**
+ * Cash accumulates for the user when they close the app. When they return, give them that cash.
+ */
+function getAwayCash(lastUpdated) {
+    const timestampSeconds = Data.now() / 1000;
+    const secondsAway = timestampSeconds - lastUpdated;
+    let awayCash = 0;
+
+    // deduct 5 minutes
+    secondsAway -= 5 * 60;
+    if (secondsAway < 0) {
+        return awayCash;
+    }
+    awayCash += secondsAway * .01;
+
+    // deduct 6 hours
+    secondsAway -= 6 * 60 * 60;
+    if (secondsAway < 0) {
+        return awayCash;
+    }
+    awayCash += secondsAway * .01;
+
+    // deduct 24 hours
+    secondsAway -= 24 * 60 * 60;
+    if (secondsAway < 0) {
+        return awayCash;
+    }
+    awayCash += secondsAway * .01;
+
+    return awayCash;
+}
