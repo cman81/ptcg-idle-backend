@@ -55,7 +55,6 @@ var expansions = {
         name: 'Rebel Clash',
         expansionSet: 'SWSH2',
         energy: 'SWSH',
-        comingSoon: true,
     },
     'SWSH1': {
         name: 'Sword & Shield',
