@@ -161,6 +161,9 @@ function compileCollection(collection) {
 }
 
 function addPackToCollection() {
+    if (!expansionSet) {
+        return;
+    }
     const pack = generatePack();
 
     // add this pack to the collection (client-side)
@@ -206,8 +209,8 @@ function saveCollection(pack, collectionName, isReplace, isNew, boxArt) {
 }
 
 function loadCards(expansion) {
-    const expansionSet = expansions[expansion].expansionSet ?? 'SWSH1';
-    const energyExpansion = expansions[expansion].energy ?? 'SWSH';
+    expansionSet = expansions[expansion].expansionSet;
+    const energyExpansion = expansions[expansion].energy;
     const apiEndpoint = apiHome + '/load_cards.php';
 
     $('.top.container').find('.expansions img').removeClass('selected');
@@ -239,7 +242,6 @@ function loadCards(expansion) {
                 const cards = rareCards[key];
                 preloadImages(cards);
             }
-
         }
     );
 }

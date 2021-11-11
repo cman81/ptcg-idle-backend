@@ -4,7 +4,6 @@ $(document).ready(function() {
 
   $('.add-cash').hide();
   $('#open-pack').attr('disabled', 'disabled');
-  loadCards('SM12');
   changeTimer();
   changeSpacer();
   revealCashButton();

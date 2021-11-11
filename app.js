@@ -8,19 +8,41 @@ var timeoutFunctions = [];
 var lastProfileUpdate = false;
 var sessionCash = 5000;
 
+var expansionSet;
 var collection = [];
-var loadedBattleDeck = [];
 var energyCards = [];
 var commonCards = [];
 var uncommonCards = [];
 var rareCards = {};
 
 var expansions = {
+    'SWSH7': {
+        name: 'Evolving Skies',
+        expansionSet: 'SWSH7',
+        energy: 'SWSH',
+    },
+    'SWSH6': {
+        name: 'Chilling Reign',
+        expansionSet: 'SWSH6',
+        energy: 'SWSH',
+        comingSoon: true,
+    },
+    'SWSH5': {
+        name: 'Battles Styles',
+        expansionSet: 'SWSH5',
+        energy: 'SWSH',
+        comingSoon: true,
+    },
+    'SWSH4b': {
+        name: 'Shining Fates',
+        expansionSet: 'SWSH4b',
+        energy: 'SWSH',
+        comingSoon: true,
+    },
     'SWSH4': {
         name: 'Vivid Voltage',
         expansionSet: 'SWSH4',
         energy: 'SWSH',
-        comingSoon: true,
     },
     'SWSH3': {
         name: 'Darkness Ablaze',
@@ -31,37 +53,42 @@ var expansions = {
     'SWSH2': {
         name: 'Rebel Clash',
         expansionSet: 'SWSH2',
-        energy: 'SWSH'
+        energy: 'SWSH',
+        comingSoon: true,
     },
     'SWSH1': {
         name: 'Sword & Shield',
         expansionSet: 'SWSH1',
-        energy: 'SWSH'
+        energy: 'SWSH',
+        comingSoon: true,
     },
     'SM12': {
         name: 'Cosmic Eclipse',
         expansionSet: 'SM12',
-        energy: 'SMb'
+        energy: 'SMb',
     },
     'SM11': {
         name: 'Unified Minds',
         expansionSet: 'SM11',
-        energy: 'SMb'
+        energy: 'SMb',
+        comingSoon: true,
     },
     'SM10': {
         name: 'Unbroken Bonds',
         expansionSet: 'SM10',
-        energy: 'SMb'
+        energy: 'SMb',
+        comingSoon: true,
     },
     'SM9': {
         name: 'Team Up',
         expansionSet: 'SM9',
-        energy: 'SMb'
+        energy: 'SMb',
     },
     'SM8': {
         name: 'Lost Thunder',
         expansionSet: 'SM8',
-        energy: 'SMb'
+        energy: 'SMb',
+        comingSoon: true,
     },
 /* TODO: this card has no "regular rares" which is crashing the app! fix it.
 Here may be why: "You can’t buy single booster packs of Dragon Majesty... they only sell them in
@@ -75,17 +102,20 @@ collector sets or 3 packs." */
     'SM7': {
         name: 'Celestial Storm',
         expansionSet: 'SM7',
-        energy: 'SMb'
+        energy: 'SMb',
+        comingSoon: true,
     },
     'SM6': {
         name: 'Forbidden Light',
         expansionSet: 'SM6',
-        energy: 'SMb'
+        energy: 'SMb',
+        comingSoon: true,
     },
     'SM5': {
         name: 'Ultra Prism',
         expansionSet: 'SM5',
-        energy: 'SMb'
+        energy: 'SMb',
+        comingSoon: true,
     },
 };
 
@@ -98,6 +128,10 @@ $(document).ready(function() {
         activateSection('pack');
         if (wallet < 4) {
             $('#status-message').html('Not enough money in your wallet! Packs cost $4.00');
+            return;
+        }
+        if (!expansionSet) {
+            $('#status-message').html('Which expansion pack do you want?');
             return;
         }
 
@@ -249,6 +283,7 @@ $(document).ready(function() {
         const value = expansions[key];
         let comingSoonAttr = '';
         if (value.comingSoon) {
+            continue; // TODO: decide whether this short-circuit is permanent
             comingSoonAttr = 'class="coming-soon"'
         }
         $('.top.container').find('.expansions').append(`

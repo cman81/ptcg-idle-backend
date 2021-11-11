@@ -75,7 +75,7 @@ body {
     margin-bottom: 15px;
 }
 .expansions img {
-    height: 50px;
+    height: 75px;
     padding: 8px;
 }
 .expansions img.selected { border: 1px solid #990000; }
