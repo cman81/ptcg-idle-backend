@@ -43,6 +43,7 @@ var expansions = {
         name: 'Vivid Voltage',
         expansionSet: 'SWSH4',
         energy: 'SWSH',
+        comingSoon: true,
     },
     'SWSH3': {
         name: 'Darkness Ablaze',
