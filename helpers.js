@@ -274,8 +274,14 @@ function saveProfile() {
         return;
     }
 
-    var apiEndpoint = apiHome + '/save_profile.php';
-    var payload = {
+    const now = Date.now();
+    if (lastProfileUpdate && (now - lastProfileUpdate > (1000 * 60 * 5))) {
+        // more than 5 minutes since last save
+        wallet += getAwayCash(lastProfileUpdate / 1000);
+    }
+
+    const apiEndpoint = apiHome + '/save_profile.php';
+    const payload = {
         name: profileId,
         wallet: wallet,
         packsOpened: packsOpened,
@@ -460,7 +466,7 @@ function updateStats() {
     $('#unique-card-count').html(uniqueCardCount);
 
     now = Date.now();
-    if (now - lastProfileUpdate > 2000) { // wait 2 seconds before saving again
+    if (!lastProfileUpdate || (now - lastProfileUpdate > 2000)) { // wait 2 seconds before saving again
         saveProfile();
     }
 }

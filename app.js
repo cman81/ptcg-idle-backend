@@ -5,7 +5,7 @@ var wallet = 0;
 var packsOpened = 0;
 var cashAdded = 0;
 var timeoutFunctions = [];
-var lastProfileUpdate = 0;
+var lastProfileUpdate = false;
 var sessionCash = 5000;
 
 var collection = [];
