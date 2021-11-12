@@ -16,6 +16,11 @@ var uncommonCards = [];
 var rareCards = {};
 
 var expansions = {
+    'SWSH8': {
+        name: 'Fusion Strike',
+        expansionSet: 'SWSH8',
+        energy: 'SWSH',
+    },
     'SWSH7': {
         name: 'Evolving Skies',
         expansionSet: 'SWSH7',
