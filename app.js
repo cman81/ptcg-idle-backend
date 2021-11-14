@@ -140,27 +140,29 @@ $(document).ready(function() {
             return;
         }
 
-        playSound('#magic-spell');
-        var pack = addPackToCollection();
+        renderPackArt().then(() => {
+            playSound('#magic-spell');
+            var pack = addPackToCollection();
 
-        // render the generated pack!
-        const rareCard = pack.pop();
-        pack = shuffle(pack);
-        pack.push(rareCard);
-        renderCards(pack, 125, '#pack');
-        $('#pack').slick('unslick');
-        $('#pack').slick({
-            arrows: false
+            // render the generated pack!
+            const rareCard = pack.pop();
+            pack = shuffle(pack);
+            pack.push(rareCard);
+            renderCards(pack, 125, '#pack');
+            $('#pack').slick('unslick');
+            $('#pack').slick({
+                arrows: false
+            });
+    
+            // @see https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
+            $('html, body').animate({
+                scrollTop: $("#pack").offset().top
+            }, 1000);
+    
+            wallet -= 4;
+            packsOpened++;
+            updateStats();
         });
-
-        // @see https://stackoverflow.com/questions/19012495/smooth-scroll-to-div-id-jquery
-        $('html, body').animate({
-            scrollTop: $("#pack").offset().top
-        }, 1000);
-
-        wallet -= 4;
-        packsOpened++;
-        updateStats();
     });
 
     $('#view-pack').click(function() {

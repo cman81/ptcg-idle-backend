@@ -21,8 +21,12 @@ body {
     backface-visibility: hidden;
 }
 
+.pack-art-wrapper img {
+    width: 290px;
+    margin: auto;
+}
 #pack .pokemon-card {
-    width: 75%;
+    width: 285px;
     margin: auto;
 }
 @media only screen and (min-width: 769px) {
@@ -30,7 +34,12 @@ body {
         background-image: url('splash.jpg');
     }    
     #pack .pokemon-card {
-        width: 50%;
+        width: 465px;
+    }
+    .pack-art-wrapper img {
+        width: auto;
+        margin: auto;
+        height: 768px;
     }
 }
 #pack .symbol {

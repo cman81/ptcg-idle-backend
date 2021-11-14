@@ -527,3 +527,24 @@ function debounce(func, wait, immediate) {
         if (callNow) func.apply(context, args);
     };
 };
+
+async function renderPackArt() {
+    const apiEndpoint = apiHome + '/load_pack_art.php';
+
+    return await $.getJSON(
+        apiEndpoint,
+        {
+            expansionSet: expansionSet,
+        },
+        function(data) {
+            data = shuffle(data);
+            let thisImgSrc = data[0];
+
+            $('#pack').append(`
+                <div class="pack-art-wrapper" data-expansion="${expansionSet}">
+                    <img src="${frontendServer}/pack_art/${expansionSet}/${thisImgSrc}" />
+                </div>
+            `);
+        }
+    );
+}
